@@ -3,10 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Codelab</title>
+	<meta name="theme-color" content="rgb(30, 30, 33)">
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300i">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="../node_modules/xterm/dist/xterm.css" />
 	<link rel="icon" href="../logo.png">
+    <script src="../node_modules/xterm/dist/xterm.js"></script>
+	<script src="./ee.js"></script>
+
 </head>
 <body>
 <div id="top">
@@ -16,6 +21,14 @@
     <div id="tabs"></div>
 </div>
 <div id="window"></div>
+<div id="footer">
+	<div id="terminal-btn">
+		<img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/terminal-512.png" width="16px" height="16px"/>
+		<span>Terminal</span>
+	</div>
+	<div id="vl2"></div>
+	<div id="customfooter"></div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
