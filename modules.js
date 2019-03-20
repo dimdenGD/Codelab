@@ -1,0 +1,3 @@
+Codelab.modules = {
+    "Terminal": true
+};

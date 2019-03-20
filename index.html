@@ -1,27 +1,37 @@
-<html><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>Codelab</title>
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="rgb(30, 30, 33)">
     <link rel="stylesheet" href="./style.css">
-    <link rel="shortcut icon" href="./logo.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="../node_modules/xterm/dist/xterm.css"/>
+    <link rel="icon" href="./logo.png">
+    <script src="./node_modules/xterm/dist/xterm.js"></script>
+    <script src="./ee.js"></script>
 </head>
 <body>
-<div id="particles"><canvas class="pg-canvas" width="1366" height="434" style="display: block;"></canvas>
-<div id="logintop">
-    <img style="position: absolute; left: 0px" src="./logo.png" width="95px" height="95px"/>
-    <h2>Welcome!</h2>
-    <small>Please, enter your invite code!</small>
-</div>
-    <div id="login">
-        <span>Invite code</span>
-        <br>
-        <br>
-        <input id="key" placeholder=" XXXX-XXXX-XXXX-XXXX">
-        <br>
-        <br>
-        <button id="btn">Sign Up</button>
+    <div id="top">
+        <span id="logo">>_ Codelab</span>
+        <span style="padding-right: 10px;"> </span>
+        <div id="vl"></div>
+        <div id="tabs">
+            <span id="newtab">+</span>
+        </div>
     </div>
-</div>
-<script src="./bg.js"></script>
-<script src="./app.js"></script>
-
-</body></html>
+    <div id="console"></div>
+    <div id="window"></div>
+    <div id="footer">
+        <div id="terminal-btn">
+            <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/terminal-512.png" width="16px" height="16px"/>
+            <span>Terminal</span>
+        </div>
+        <div id="vl2"></div>
+        <div id="customfooter"></div>
+    </div>
+    <script src="app.js"></script>
+    <script src="./modules.js"></script>
+</body>
+</html>
