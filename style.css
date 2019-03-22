@@ -251,13 +251,13 @@ body {
 
 #console {
 	position: absolute;
-	z-index: 999999;
-	top: 60px;
 	right: 15px;
 	width: 300px;
-	height: 400px;
+	height: auto;
 	font-family: monospace;
 	display: inline-block;
+	top: 55px;
+	z-index: 2;
 }
 
 #console > .log {
@@ -334,4 +334,13 @@ body {
 	color: #cd352a !important;
 	font-size: 17px;
 	top: -5px !important;
+}
+
+input {
+	font-family: "Rubik", sans-serif;
+	color: dimgrey;
+	background-color: #353540;
+	border-style: none;
+	border-radius: 3px;
+	padding: 5px;
 }

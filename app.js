@@ -1,11 +1,6 @@
 console.log(`%c>_ Codelab`, `font-style: oblique; padding: 10px; font-width: 1px; font-size: 32px; background: #222; color: #8cff76;`);
 console.log(`%cWelcome to the Codelab dev-console! Main API object: "Codelab" (window.Codelab)`, 'border-radius: 3px; padding: 10px; background: #222; color: #bada55');
 
-function require(module) {
-    if (!Codelab.dependencies[module]) throw new Error("Cannot find module \"" + module + "\"");
-    if (!Codelab.dependencies[module].api) throw new Error(`"${module}" doesn't have API`);
-    return Codelab.dependencies[module].api;
-};
 function toUnicode(theString) {
     var unicodeString = '';
     for (var i = 0; i < theString.length; i++) {
@@ -167,7 +162,7 @@ Codelab = {
               return undefined;
         })();
         if (!Codelab.utils.checkDeps(dependencies)) {
-            Codelab.console.error('Error', `Please install dependencies first: ${dependencies.join(", ")}`)
+            Codelab.console.warn('Error', `Please install dependencies first: ${dependencies.join(", ")}`)
             return false;
         }
         for (let i of document.getElementById('tabs').children) if (i.innerText.slice(0, -2) === name) return false;
@@ -187,7 +182,7 @@ Codelab = {
                 tabid++;
             } else break;
         }
-        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="if(document.getElementById('tabs').childElementCount === 2) return; delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];this.parentElement.remove();Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2)); document.getElementById('win-'+${tabid}).remove();" class="close-btn"> ×</button></span>`);
+        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="if(document.getElementById('tabs').childElementCount === 2) return; delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];this.parentElement.remove();Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2)); document.getElementById('win-'+${tabid}).remove();document.getElementById('newtab').style.display = 'block';" class="close-btn"> ×</button></span>`);
         document.getElementById('window').insertAdjacentHTML('beforeend', `<div style="position: absolute" id="win-${tabid}">${html}</div>`);
         document.getElementById(`tab-${tabid}`).addEventListener("click", () => {
             if (document.getElementById(`tab-${tabid}`)) Codelab.selectTab(name);
@@ -204,8 +199,17 @@ Codelab = {
     }
 };
 Codelab.createWindow("Welcome", `<span style="width: 1000px; position: absolute; left: 20px; color: gray; font-family: monospace">
+<style>
+#welcome-to-codelab {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style>
     <br>
-    Welcome to the Codelab!
+    <span id="welcome-to-codelab">Welcome to the Codelab!</span>
+    <br>
     <br>
     This project is currently in BETA, but you can try the API, create your own windows right now!
     <br>
@@ -278,7 +282,8 @@ background-color: #353535;
                 ws.send(2);
             }, 15000);
             ws.onclose = () => {
-                term.writeln(`Remote machine closed connection. Reconnecting.`);
+                term.writeln(`Remote machine closed connection.`);
+                Codelab.console.error("Terminal", "Remote machine closed connection.");
                 connect();
             };
             ws.onmessage = msg => {
@@ -321,8 +326,114 @@ background-color: #353535;
 
         Codelab.dependencies['Terminal'].api.term = term;
         runTerminal();
-    }, [], true, `<span id="terminal-reload" onclick="require('Terminal').term.reset();">Reload</span>`);
+    }, [], true, `<span id="terminal-reload" onclick="Codelab.dependencies.Terminal.api.term.reset();">Reload</span>`);
 });
 document.getElementById('newtab').addEventListener('click', () => {
+    Codelab.createWindow('+', `
+<style>
+#module-selector-div {
+    font-family: monospace;
+    color: dimgray;
+    position: absolute;
+    left: 15px;
+}
 
+#module-selector-logo {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+}
+
+#module-selector-modules {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.module-block {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-bottom-color: #313131;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    font-family: monospace;
+    padding: 6px;
+}
+
+.module-version {
+    position: absolute;
+    left: 85%;
+    margin-top: -3%;
+}
+
+.module-block > h3 {
+    font-family: "Rubik", sans-serif !important;
+}
+
+.module-download {
+    border-color: #8cff76;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    position: inherit;
+    margin-left: 85%;
+    color: #8cff76;
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 6px;
+}
+
+.module-downloaded {
+    border-color: dimgray;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    position: inherit;
+    margin-left: 85%;
+    color: dimgray;
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 6px;
+}
+
+.module-download:hover {
+    border-color: #8cff76;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    position: inherit;
+    margin-left: 85%;
+    color: white;
+    background-color: rgba(20,80,20, 15);
+    margin-bottom: 6px;
+}
+
+#module-search {
+    width: 400px;
+    position: absolute;
+    left: 250px;
+    top: 15px;
+}
+
+</style>
+<div id="module-selector-div">
+        <h2 id="module-selector-logo">Modules</h2>
+        <input id="module-search" placeholder="Type the name of the module here..."/>
+    <hr>
+    <div id="module-selector-modules"></div>
+</div>`, {}, () => {
+        document.getElementById('newtab').style.display = "none";
+        let search = document.getElementById('module-search');
+        let modules = document.getElementById('module-selector-modules');
+
+        search.addEventListener('keyup', () => {
+            if(search.value === "") {
+                for(let i of modules.children) i.style.display = "block";
+                return;
+            }
+            for (let i of modules.children) i.style.display = "block";
+            for(let i of modules.children) {if (!i.children[0].innerText.toLowerCase().startsWith(search.value.toLowerCase())) i.style.display = "none"};
+        });
+        for(let i in Codelab.modules) {
+            modules.insertAdjacentHTML('beforeend', `<div class="module-block"><h3>${i} ${!Codelab.modules[i].windowed ? " <img title=\"This module doesn't have an window interface.\"  width=\"16px\" height=\"16px\" src=\"nowin.png\">" : ""}</h3><span class="module-version">${Codelab.modules[i].author} ${Codelab.modules[i].version}</span><br><span>${Codelab.modules[i].desc}</span><button onclick="Codelab.utils.selectedTab[0].children[0].click();Codelab.getDependency('${i}');" class="module-download">${Codelab.modules[i].windowed ? "Open" : "Install"}</button></div>`)
+        }
+    }, []);
 });

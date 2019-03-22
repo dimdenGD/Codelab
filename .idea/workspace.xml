@@ -3737,9 +3737,7 @@
       <change afterPath="$PROJECT_DIR$/../Cashbot/package-lock.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Cashbot/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Cashbot/template.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/Terminal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/WebBuilder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/.idea/libraries/Java_WebSocket_1_4_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/OJV.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/World.java" afterDir="false" />
@@ -3750,14 +3748,14 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChromeBot/node_modules/IMG_20181226_125942-magic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Codelab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Codelab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bg.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/ee.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/Terminal.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/Terminal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/WebBuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/WebBuilder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/code.png" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/code.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/index.js" afterDir="false" />
@@ -3956,37 +3954,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+            <state relative-caret-position="200">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
+            <state relative-caret-position="46">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
-                <element signature="e#480#721#0" />
                 <element signature="e#757#1159#0" />
-                <element signature="e#1193#2165#0" />
                 <element signature="e#2303#2323#0" />
                 <element signature="e#2346#2368#0" />
                 <element signature="e#3952#4753#0" />
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#span#0;n#!!top" />
                 <element signature="e#6164#6167#0" />
+                <element signature="e#6942#10386#0" />
+                <element signature="e#13594#16413#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/WebBuilder.js">
+        <entry file="file://$PROJECT_DIR$/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="253">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -3994,8 +3992,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="189" column="29" selection-start-line="189" selection-start-column="23" selection-end-line="189" selection-end-column="29" />
+            <state relative-caret-position="286">
+              <caret line="258" column="14" selection-start-line="258" selection-start-column="14" selection-end-line="258" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/WebBuilder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="160" column="51" lean-forward="true" selection-start-line="160" selection-start-column="51" selection-end-line="160" selection-end-column="51" />
+              <folding>
+                <element signature="e#31#37#0" expanded="true" />
+                <element signature="e#37#43#0" expanded="true" />
+                <element signature="e#197#203#0" expanded="true" />
+                <element signature="e#203#209#0" expanded="true" />
+                <element signature="e#298#304#0" expanded="true" />
+                <element signature="e#304#310#0" expanded="true" />
+                <element signature="e#4358#5497#0" />
+                <element signature="e#5577#6716#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/Terminal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -4013,8 +4039,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>particleground</find>
-      <find>particle</find>
       <find>plugin</find>
       <find>resize</find>
       <find>destroy</find>
@@ -4031,6 +4055,20 @@
       <find>#w</find>
       <find>dep</find>
       <find>footer</find>
+      <find>[A-Z-0-9-a-z]{32,}</find>
+      <find>[A-Z-0-9-a-z]{32}</find>
+      <find>[A-Z-0-9-a-z]{32}\&quot;</find>
+      <find>\&quot;[A-Z-0-9-a-z]{32}\&quot;</find>
+      <find>daydun</find>
+      <find>code</find>
+      <find>conduct</find>
+      <find>solve</find>
+      <find>secret</find>
+      <find>md5</find>
+      <find>sha256</find>
+      <find>.error</find>
+      <find>#cons</find>
+      <find>require</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -4053,12 +4091,13 @@
         <option value="$PROJECT_DIR$/packages.json" />
         <option value="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/app.js" />
         <option value="$PROJECT_DIR$/secret_gdvcxvdsfvjnfkjdfkvndf/index.html" />
-        <option value="$PROJECT_DIR$/modules.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/packages/Terminal.js" />
-        <option value="$PROJECT_DIR$/packages/WebBuilder.js" />
+        <option value="$USER_HOME$/Downloads/s.js" />
+        <option value="$PROJECT_DIR$/modules.js" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/packages/WebBuilder.js" />
       </list>
     </option>
   </component>
@@ -4135,18 +4174,18 @@
       <workItem from="1552824124071" duration="7013000" />
       <workItem from="1552832681757" duration="39823000" />
       <workItem from="1552934322558" duration="13860000" />
-      <workItem from="1553096003665" duration="17519000" />
+      <workItem from="1553096003665" duration="43039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78215000" />
+    <option name="totallyTimeSpent" value="103735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1688988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Floobits" order="0" weight="0.43760684" />
@@ -4263,55 +4302,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/s.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="30630" column="4" lean-forward="true" selection-start-line="30630" selection-start-column="4" selection-end-line="30630" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/Terminal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/WebBuilder.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        <state relative-caret-position="253">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="189" column="29" selection-start-line="189" selection-start-column="23" selection-end-line="189" selection-end-column="29" />
+        <state relative-caret-position="286">
+          <caret line="258" column="14" selection-start-line="258" selection-start-column="14" selection-end-line="258" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/Terminal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="230" column="1" lean-forward="true" selection-start-line="230" selection-start-column="1" selection-end-line="230" selection-end-column="1" />
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
-            <element signature="e#480#721#0" />
             <element signature="e#757#1159#0" />
-            <element signature="e#1193#2165#0" />
             <element signature="e#2303#2323#0" />
             <element signature="e#2346#2368#0" />
             <element signature="e#3952#4753#0" />
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#span#0;n#!!top" />
             <element signature="e#6164#6167#0" />
+            <element signature="e#6942#10386#0" />
+            <element signature="e#13594#16413#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/WebBuilder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="160" column="51" lean-forward="true" selection-start-line="160" selection-start-column="51" selection-end-line="160" selection-end-column="51" />
+          <folding>
+            <element signature="e#31#37#0" expanded="true" />
+            <element signature="e#37#43#0" expanded="true" />
+            <element signature="e#197#203#0" expanded="true" />
+            <element signature="e#203#209#0" expanded="true" />
+            <element signature="e#298#304#0" expanded="true" />
+            <element signature="e#304#310#0" expanded="true" />
+            <element signature="e#4358#5497#0" />
+            <element signature="e#5577#6716#0" />
           </folding>
         </state>
       </provider>
