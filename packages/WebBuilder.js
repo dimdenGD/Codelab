@@ -2,7 +2,7 @@ module = {
     name: "WebBuilder",
     author: "dimden",
     desc: "The module for building websites with live editor.",
-    version: '1.0.1',
+    version: '1.0.2',
     html:`
 <div>
     <span id="wbe-html">&nbsp;&nbsp;HTML</span>

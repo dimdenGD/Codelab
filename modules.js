@@ -2,13 +2,13 @@ Codelab.modules = {
     "Terminal": {
         author: "dimden",
         desc: "The Terminal API with bash.",
-        version: '1.0.4',
+        version: '1.0.5',
         windowed: false
     },
     "WebBuilder": {
         author: "dimden",
         desc: "The module for building websites with live editor.",
-        version: '1.0.1',
+        version: '1.0.2',
         windowed: true
     },
     "RESTClient": {

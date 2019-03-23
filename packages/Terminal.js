@@ -2,7 +2,7 @@ module = {
     "name": "Terminal",
     "author": "dimden",
     "desc": "The Terminal API with bash.",
-    "version": '1.0.4',
+    "version": '1.0.5',
     "html": "<ofo></ofo>",
     "api": {
         bash: class extends EventEmitter {
