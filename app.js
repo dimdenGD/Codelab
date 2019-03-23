@@ -1,18 +1,6 @@
 console.log(`%c>_ Codelab`, `font-style: oblique; padding: 10px; font-width: 1px; font-size: 32px; background: #222; color: #8cff76;`);
 console.log(`%cWelcome to the Codelab dev-console! Main API object: "Codelab" (window.Codelab)`, 'border-radius: 3px; padding: 10px; background: #222; color: #bada55');
 
-function toUnicode(theString) {
-    var unicodeString = '';
-    for (var i = 0; i < theString.length; i++) {
-        var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
-        while (theUnicode.length < 4) {
-            theUnicode = '0' + theUnicode;
-        }
-        theUnicode = '\\u' + theUnicode;
-        unicodeString += theUnicode;
-    }
-    return unicodeString;
-}
 if (!Object.prototype.watch) {
     Object.defineProperty(Object.prototype, "watch", {
         enumerable: false
@@ -57,8 +45,32 @@ Codelab = {
             }
             return arr_of_deps.length === o;
         },
-        selectedTab: false
-    },
+        selectedTab: false,
+        askForFile: (accept = "text/html", callback) => {
+            let file = document.createElement('input');
+            file.type = "file";
+            file.onchange = () => {
+                let reader = new FileReader();
+                reader.onload = f => {
+                    callback(f);
+                };
+                reader.readAsText(file.files[0]);
+            };
+            file.click();
+        },
+        toUnicode(theString) {
+    var unicodeString = '';
+    for (var i = 0; i < theString.length; i++) {
+        var theUnicode = theString.charCodeAt(i).toString(16).toUpperCase();
+        while (theUnicode.length < 4) {
+            theUnicode = '0' + theUnicode;
+        }
+        theUnicode = '\\u' + theUnicode;
+        unicodeString += theUnicode;
+    }
+    return unicodeString;
+}
+},
     console: {
       log: (title, msg) => {
             document.getElementById('console').insertAdjacentHTML('beforeend', `<div id="msg-${document.getElementById('console').childElementCount}" class="log"><h3>${title}</h3><span onclick="this.parentElement.remove();" class="console-close-btn">×</span><span>${msg}</span></div>`)
@@ -127,7 +139,7 @@ Codelab = {
         return false;
     },
     getDependency: name => {
-        if(Codelab.dependencies[name]) return false;
+        if(Codelab.utils.windowExists(name)) return false;
         if (!name) throw new Error('No name.');
         if (typeof name !== "string") throw new Error('Argument should be a string!');
         let script = document.createElement('script');
@@ -147,10 +159,14 @@ Codelab = {
                 };
                 return true;
             } else {
-                Codelab.createWindow(module.name, module.html, eval(module.api), module.js, module.dependencies, module.focus);
+                Codelab.createWindow(module.name, module.html, eval(module.api), module.js, module.dependencies, module.focus, module.footer ? module.footer : null);
                 return true;
             }
         };
+    },
+    mouse: {
+      x: 0,
+      y: 0
     },
     createWindow: (name, html, api = {}, js, dependencies = [], focus = true, footer_html = "") => {
         if (!name || !html || !js) return false;
@@ -182,7 +198,7 @@ Codelab = {
                 tabid++;
             } else break;
         }
-        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="if(document.getElementById('tabs').childElementCount === 2) return; delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];this.parentElement.remove();Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2)); document.getElementById('win-'+${tabid}).remove();document.getElementById('newtab').style.display = 'block';" class="close-btn"> ×</button></span>`);
+        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="if(document.getElementById('tabs').childElementCount === 2) openWelcome(); delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];this.parentElement.remove();Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2)); document.getElementById('win-'+${tabid}).remove();document.getElementById('newtab').style.display = 'block';" class="close-btn"> ×</button></span>`);
         document.getElementById('window').insertAdjacentHTML('beforeend', `<div style="position: absolute" id="win-${tabid}">${html}</div>`);
         document.getElementById(`tab-${tabid}`).addEventListener("click", () => {
             if (document.getElementById(`tab-${tabid}`)) Codelab.selectTab(name);
@@ -198,7 +214,8 @@ Codelab = {
         return true;
     }
 };
-Codelab.createWindow("Welcome", `<span style="width: 1000px; position: absolute; left: 20px; color: gray; font-family: monospace">
+function openWelcome() {
+    Codelab.createWindow("Welcome", `<span style="width: 1000px; position: absolute; left: 20px; color: gray; font-family: monospace">
 <style>
 #welcome-to-codelab {
     font-family: "Rubik", sans-serif;
@@ -206,7 +223,13 @@ Codelab.createWindow("Welcome", `<span style="width: 1000px; position: absolute;
     font-weight: bold;
 }
 
+#welcome-msg {
+    font-family: "Montserrat";
+    font-size: 15px;
+}
+
 </style>
+<div id="welcome-msg">
     <br>
     <span id="welcome-to-codelab">Welcome to the Codelab!</span>
     <br>
@@ -219,8 +242,11 @@ Created by <span style="color: #ddff89">dimden</span>, with small help of recapi
     <br>
     <br>
     My Discord: Eff the cops#1877
-</span>`, {}, () => {
-}, [], true);
+</span>
+</div>`, {}, () => {
+    }, [], true);
+}
+openWelcome();
 
 document.getElementById('terminal-btn').addEventListener('click', () => {
     Codelab.createWindow("Terminal", `<style>
@@ -315,7 +341,7 @@ background-color: #353535;
                 if (ev.keyCode === 13) {
                     ws.send(`42["data",{"host":"HOST1","data":"\\r"}]`)
 
-                } else ws.send(`42["data",{"host":"HOST1","data":"${toUnicode(key)}"}]`)
+                } else ws.send(`42["data",{"host":"HOST1","data":"${Codelab.utils.toUnicode(key)}"}]`)
             });
 
             term.on('paste', function (data) {
@@ -332,7 +358,7 @@ document.getElementById('newtab').addEventListener('click', () => {
     Codelab.createWindow('+', `
 <style>
 #module-selector-div {
-    font-family: monospace;
+    font-family: "Montserrat";
     color: dimgray;
     position: absolute;
     left: 15px;
@@ -356,7 +382,8 @@ document.getElementById('newtab').addEventListener('click', () => {
     border-bottom-color: #313131;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    font-family: monospace;
+    font-family: "Montserrat";
+    font-size: 15px;
     padding: 6px;
 }
 
@@ -437,3 +464,4 @@ document.getElementById('newtab').addEventListener('click', () => {
         }
     }, []);
 });
+document.addEventListener('mousemove', e => {Codelab.mouse.x = e.x; Codelab.mouse.y = e.screenY});

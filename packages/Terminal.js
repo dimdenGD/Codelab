@@ -71,7 +71,7 @@ module = {
                     if(ev.keyCode === 13) {
                         ws.send(`42["data",{"host":"HOST1","data":"\\r"}]`)
 
-                    } else ws.send(`42["data",{"host":"HOST1","data":"${toUnicode(key)}"}]`)
+                    } else ws.send(`42["data",{"host":"HOST1","data":"${Codelab.utils.toUnicode(key)}"}]`)
                 });
 
                 term.on('paste', function(data) {
