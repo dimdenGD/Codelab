@@ -1,0 +1,10 @@
+<codelab>
+    <project>
+        <dependencies>Terminal</dependencies>
+        <windows>WebBuilder, RESTClient</windows>
+        <localStorage>
+            <webbuilder>some data</webbuilder>
+        </localStorage>
+    </project>
+    <date>7:32 24.03.2019</date>
+</codelab>

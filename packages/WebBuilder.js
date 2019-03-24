@@ -296,7 +296,7 @@ module = {
     dependencies: [],
     focus: true,
     windowed: true,
-    footer: `<button class="footer-btn" onclick="let download = (filename, text) => {let element = document.createElement('a');element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));element.setAttribute('download', filename);element.click()};download('codelab_webbuilder_out.html', document.getElementById('webbuilder-result-iframe').contentWindow.document.documentElement.innerHTML)">Download</button>
+    footer: `<button class="footer-btn" onclick="Codelab.utils.download('codelab_webbuilder_out.html', document.getElementById('webbuilder-result-iframe').contentWindow.document.documentElement.innerHTML)">Download</button>
 <button class="footer-btn" onclick="
 let ls = JSON.stringify({
     html: Codelab.dependencies.WebBuilder.api.editors.html.getValue(),

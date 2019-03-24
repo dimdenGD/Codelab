@@ -1,7 +1,7 @@
 module = {
     "name": "Terminal",
     "author": "dimden",
-    "desc": "The Terminal with bash.",
+    "desc": "The Terminal API with bash.",
     "version": '1.0.5',
     "html": "<ofo></ofo>",
     "api": {
@@ -81,6 +81,6 @@ module = {
             }
             runTerminal()},
     "dependencies": [],
-    "focus": true,
-    "windowed": true
+    "focus": false,
+    "windowed": false
 };

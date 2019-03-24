@@ -37,7 +37,9 @@ Codelab = {
     dependencies: {},
     utils: {
         windowExists: tabName => {
-            return !!Codelab.windows[tabName];
+            let o = 0;
+            for(let i of document.getElementById('tabs').children) if(i.innerText.slice(0, -2) === tabName) o++;
+            return o > 0;
         },
         checkDeps: arr_of_deps => {
             let o = 0;
@@ -70,6 +72,40 @@ Codelab = {
                 unicodeString += theUnicode;
             }
             return unicodeString;
+        },
+        download: (filename, text) => {
+            let element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.click();
+        },
+        xml2json: (xml) => {
+            try {
+                var obj = {};
+                if (xml.children.length > 0) {
+                    for (var i = 0; i < xml.children.length; i++) {
+                        var item = xml.children.item(i);
+                        var nodeName = item.nodeName;
+
+                        if (typeof (obj[nodeName]) == "undefined") {
+                            obj[nodeName] = Codelab.utils.xml2json(item);
+                        } else {
+                            if (typeof (obj[nodeName].push) == "undefined") {
+                                var old = obj[nodeName];
+
+                                obj[nodeName] = [];
+                                obj[nodeName].push(old);
+                            }
+                            obj[nodeName].push(Codelab.utils.xml2json(item));
+                        }
+                    }
+                } else {
+                    obj = xml.textContent;
+                }
+                return obj;
+            } catch (e) {
+                console.log(e.message);
+            }
         }
     },
     console: {
@@ -202,7 +238,13 @@ Codelab = {
                 tabid++;
             } else break;
         }
-        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="if(document.getElementById('tabs').childElementCount === 2) openWelcome(); delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];this.parentElement.remove();Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2)); document.getElementById('win-'+${tabid}).remove();document.getElementById('newtab').style.display = 'block';" class="close-btn"> ×</button></span>`);
+        document.getElementById('tabs').insertAdjacentHTML(`beforeend`, `<span id="tab-${tabid}" class="tab">${name} <button onclick="
+            if(document.getElementById('tabs').childElementCount === 2) return;
+            delete Codelab.windows[this.parentElement.innerText.slice(0, -2)];
+            this.parentElement.remove();
+            Codelab.selectTab(document.getElementById('tabs').children[1].innerText.slice(0, -2));
+            document.getElementById('win-'+${tabid}).remove();document.getElementById('newtab').style.display = 'block';
+            " class="close-btn"> ×</button></span>`);
         document.getElementById('window').insertAdjacentHTML('beforeend', `<div style="position: absolute" class="win" id="win-${tabid}">${html}</div>`);
         document.getElementById(`tab-${tabid}`).addEventListener("click", () => {
             if (document.getElementById(`tab-${tabid}`)) Codelab.selectTab(name);
@@ -220,36 +262,7 @@ Codelab = {
 };
 
 function openWelcome() {
-    Codelab.createWindow("Welcome", `<span style="width: 1000px; position: absolute; left: 20px; color: gray; font-family: monospace">
-<style>
-#welcome-to-codelab {
-    font-family: "Rubik", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#welcome-msg {
-    font-family: "Montserrat";
-    font-size: 15px;
-}
-
-</style>
-<div id="welcome-msg">
-    <br>
-    <span id="welcome-to-codelab">Welcome to the Codelab!</span>
-    <br>
-    <br>
-    This project is currently in BETA, but you can try the API, or even create your own modules right now!
-    <br>
-    <br>
-Created by <span style="color: #ddff89">dimden</span>, with small help of recapitalverb.
-    <br>
-    <br>
-    <br>
-    My Discord: Eff the cops#1877
-</span>
-</div>`, {}, () => {
-    }, [], true);
+    Codelab.getDependency('Welcome');
 }
 
 openWelcome();
@@ -360,8 +373,9 @@ background-color: #353535;
         runTerminal();
     }, [], true, `<span id="terminal-reload" onclick="Codelab.dependencies.Terminal.api.term.reset();">Reload</span>`);
 });
-document.getElementById('newtab').addEventListener('click', () => {
-    Codelab.createWindow('+', `
+function newTab() {
+    document.getElementById('newtab').addEventListener('click', () => {
+        Codelab.createWindow('+', `
 <style>
 #module-selector-div {
     font-family: "Montserrat";
@@ -443,26 +457,28 @@ document.getElementById('newtab').addEventListener('click', () => {
     <hr>
     <div id="module-selector-modules"></div>
 </div>`, {}, () => {
-        document.getElementById('newtab').style.display = "none";
-        let search = document.getElementById('module-search');
-        let modules = document.getElementById('module-selector-modules');
+            document.getElementById('newtab').style.display = "none";
+            let search = document.getElementById('module-search');
+            let modules = document.getElementById('module-selector-modules');
 
-        search.addEventListener('keyup', () => {
-            if (search.value === "") {
+            search.addEventListener('keyup', () => {
+                if (search.value === "") {
+                    for (let i of modules.children) i.style.display = "block";
+                    return;
+                }
                 for (let i of modules.children) i.style.display = "block";
-                return;
+                for (let i of modules.children) {
+                    if (!i.children[0].innerText.toLowerCase().startsWith(search.value.toLowerCase())) i.style.display = "none"
+                }
+                ;
+            });
+            for (let i in Codelab.modules) {
+                modules.insertAdjacentHTML('beforeend', `<div class="module-block"><h3>${i} ${!Codelab.modules[i].windowed ? " <img title=\"This module doesn't have an window interface.\"  width=\"16px\" height=\"16px\" src=\"img/nowin.png\">" : ""}</h3><span class="module-version">${Codelab.modules[i].author} ${Codelab.modules[i].version}</span><br><span>${Codelab.modules[i].desc}</span><button onclick="Codelab.utils.selectedTab[0].children[0].click();Codelab.getDependency('${i}');" class="module-download">${Codelab.modules[i].windowed ? "Open" : "Install"}</button></div>`)
             }
-            for (let i of modules.children) i.style.display = "block";
-            for (let i of modules.children) {
-                if (!i.children[0].innerText.toLowerCase().startsWith(search.value.toLowerCase())) i.style.display = "none"
-            }
-            ;
-        });
-        for (let i in Codelab.modules) {
-            modules.insertAdjacentHTML('beforeend', `<div class="module-block"><h3>${i} ${!Codelab.modules[i].windowed ? " <img title=\"This module doesn't have an window interface.\"  width=\"16px\" height=\"16px\" src=\"img/nowin.png\">" : ""}</h3><span class="module-version">${Codelab.modules[i].author} ${Codelab.modules[i].version}</span><br><span>${Codelab.modules[i].desc}</span><button onclick="Codelab.utils.selectedTab[0].children[0].click();Codelab.getDependency('${i}');" class="module-download">${Codelab.modules[i].windowed ? "Open" : "Install"}</button></div>`)
-        }
-    }, []);
-});
+        }, []);
+    });
+};
+newTab();
 document.addEventListener('mousemove', e => {
     Codelab.mouse.x = e.x;
     Codelab.mouse.y = e.screenY
@@ -502,8 +518,10 @@ document.getElementById('docs-btn').addEventListener('click', () => {
     <br>
     <span>It looks like you're interested in this project.
     The Codelab was created by me as thing that has everything for developers, and for people who want to contribute to this project with our API.
-    
-    If you want to create your own module, you need to understand the API first. So let's start from the overview. For this moment API looks like this:</span>
+    <br>
+    If you want your module was added to modulelist please, contact me with Discord!
+    <br>
+    So, if you want to create your own module, you need to understand the API first. So let's start from the overview. For this moment API looks like this:</span>
     <br>
     <br>
     <img src="img/CodelabAPI.png" style="left: 20%;position: initial;">
@@ -587,6 +605,16 @@ document.getElementById('docs-btn').addEventListener('click', () => {
     <span>Checks is there window or no.</span>
     <br>
     <br>
+    <h3>download(filename, text)</h3>
+    <br>
+    <span>Downloads a file to client.</span>
+    <br>
+    <br>
+    <h3>xml2json(xml)</h3>
+    <br>
+    <span>Creates JSON from parsed XML.</span>
+    <br>
+    <br>
     <br>
     <br>
     <div id="docs-bottom">
@@ -647,4 +675,47 @@ console.log(\`Example!\`);
         });
     }, []);
 });
+document.getElementById('save-btn').addEventListener('click', () => {
+    let date = Date.now();
+    let name = prompt('Type the name of project:');
+    let xml = `<codelab>
+    <project>
+        <name>${name}</name>
+        <modules>${Object.keys(Codelab.dependencies).join(', ')}</modules>
+        <localStorage></localStorage>
+        <date>${date}</date>
+    </project>
+</codelab>`;
+    let dom = new DOMParser();
+    let xml_dom = dom.parseFromString(xml, "text/xml");
+    for(let i = 0; i < localStorage.length; i++) {
+        let thing = localStorage.key(i);
+        let think = localStorage[thing];
 
+        let el = xml_dom.createElement(thing);
+        el.textContent = think;
+
+        xml_dom.getElementsByTagName('localStorage')[0].appendChild(el);
+
+    }
+    xml = xml_dom.documentElement.innerHTML;
+    Codelab.utils.download(`${name}-${date}.codelab`, xml);
+});
+document.getElementById('load-btn').addEventListener('click', () => {
+    Codelab.utils.askForFile('text/xml', f => {
+        document.getElementById('tabs').innerHTML = "";
+        document.getElementById('window').innerHTML = "";
+        let dom = new DOMParser();
+        let xml = dom.parseFromString(f.target.result, "text/xml");
+        let json = Codelab.utils.xml2json(xml);
+        localStorage.clear();
+        for(let i in json.project.localStorage) localStorage[i] = json.project.localStorage[i];
+
+        setTimeout(() => {
+            document.getElementById('projectname').innerText = json.project.name
+            for(let i of json.project.modules.split(", ")) Codelab.getDependency(i);
+            document.getElementById('tabs').insertAdjacentHTML('beforeend', `<span id="newtab">+</span>`);
+            newTab();
+        }, 200);
+    })
+});

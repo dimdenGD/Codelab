@@ -1,5 +1,5 @@
 Codelab.modules = {
-    "Terminal": {
+    "TerminalAPI": {
         author: "dimden",
         desc: "The Terminal API with bash.",
         version: '1.0.5',
