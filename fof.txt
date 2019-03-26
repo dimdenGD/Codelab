@@ -1,0 +1,74 @@
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<div id="restcli">
+<input type="text" id="urlinput">
+<div id="restcli-top"></div>
+<div id="restcli-folders"></div>
+    <span id="json">
+    		<span id="jsontop">&nbsp;&nbsp;JSON</span>
+    	<button id="send">Send</button>
+    </span>
+    <div id="editor-json"></div>
+</div>
+<style>
+#restcli {
+    background-color: #313131;
+}
+
+#restcli-top {
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    height: 40px;
+    z-index: 5;
+}
+
+#restcli-folders {
+    left: 0;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+}
+
+#json {
+    color: dimgray;
+    font-family: "Rubik", sans-serif;
+    position: fixed;
+    width: 50%;
+    background-color: rgb(42, 41, 49);
+}
+
+#jsontop {
+		font-family: inherit;
+		text-align: center;
+		position: absolute;
+		top: 8px;
+}
+
+#urlinput {
+        color: #d2d2d2;
+        width: auto;
+        top: 8px;
+        padding: unset;
+        padding-left: 5px;
+        font-size: 15px
+}
+
+#send {
+		background-color: #00b7d7;
+		border: none;
+		text-align: center;
+		font-family: inherit;
+		float: right;
+		padding: 10px 15px;
+}
+
+#editor-json {
+    position: fixed;
+    display: table;
+    left: 0;
+    top: 90px;
+    width: 50%;
+    height: 50%;
+    font-size: 18px;
+}
+</style>

@@ -19,17 +19,20 @@ module = {
 </style>
 <div id="welcome-msg">
     <br>
-    <span id="welcome-to-codelab">Welcome to the Codelab!</span>
+    <span id="welcome-to-codelab">Welcome to Codelab!</span>
     <br>
     <br>
     This project is currently in BETA, but you can try the API, or even create your own modules right now!
     <br>
     <br>
-Created by <span style="color: #ddff89">dimden</span>, with small help of recapitalverb.
+    Created by <span style="color: #ddff89">dimden</span>, with small help of recapitalverb.
     <br>
     <br>
     <br>
     My Discord: Eff the cops#1877
+    <br>
+    <br>
+    ${window.navigator.userAgent.toLowerCase().includes('chrome') ? "" : "[NoChrome]: If you have troubles with interface, try using Chrome."}
 </span>
 </div>`,
 	api: {},

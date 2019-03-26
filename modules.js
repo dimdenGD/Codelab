@@ -12,7 +12,7 @@ Codelab.modules = {
         windowed: true
     },
     "RESTClient": {
-        author: "recapitalverb",
+        author: "recapitalverb & dimden",
         desc: "Test and debug REST APIs like a cat, not a dog. 🐈",
         version: '0.0.1',
         windowed: true

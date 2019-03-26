@@ -204,6 +204,7 @@ Codelab = {
             }
         };
     },
+    name: document.getElementById('name').innerText,
     mouse: {
         x: 0,
         y: 0
@@ -264,8 +265,145 @@ Codelab = {
 function openWelcome() {
     Codelab.getDependency('Welcome');
 }
+function saveEverything() {
+    let date = Date.now();
+    let name = Codelab.name === "Unnamed project" ? prompt('Type the name of project:') : Codelab.name;
+    if(!name) return;
+    document.getElementById('projectname').innerText = name;
+    Codelab.name = name;
+    let xml = `<codelab>
+    <project>
+        <name>${name}</name>
+        <modules>${Object.keys(Codelab.dependencies).join(', ')}</modules>
+        <localStorage></localStorage>
+        <date>${date}</date>
+    </project>
+</codelab>`;
+    let dom = new DOMParser();
+    let xml_dom = dom.parseFromString(xml, "text/xml");
+    for(let i = 0; i < localStorage.length; i++) {
+        let thing = localStorage.key(i);
+        let think = localStorage[thing];
+
+        let el = xml_dom.createElement(thing);
+        el.textContent = think;
+
+        xml_dom.getElementsByTagName('localStorage')[0].appendChild(el);
+
+    }
+    xml = xml_dom.documentElement.innerHTML;
+    Codelab.utils.download(`${name}-${date}.codelab`, xml);
+
+}
+function newTab() {
+    document.getElementById('newtab').addEventListener('click', () => {
+        Codelab.createWindow('+', `
+<style>
+#module-selector-div {
+    font-family: "Montserrat";
+    color: dimgray;
+    position: absolute;
+    left: 15px;
+}
+
+#module-selector-logo {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+}
+
+#module-selector-modules {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.module-block {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-bottom-color: #313131;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    font-family: "Montserrat";
+    font-size: 15px;
+    padding: 6px;
+}
+
+.module-version {
+    position: absolute;
+    left: 85%;
+    margin-top: -3%;
+}
+
+.module-block > h3 {
+    font-family: "Rubik", sans-serif !important;
+}
+
+.module-download {
+    border-color: #8cff76;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    position: inherit;
+    margin-left: 85%;
+    color: #8cff76;
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 6px;
+    font-family: "Montserrat";
+}
+
+.module-download:hover {
+    border-color: #8cff76;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    position: inherit;
+    margin-left: 85%;
+    color: white;
+    background-color: rgba(20,80,20, 15);
+    margin-bottom: 6px;
+    font-family: "Montserrat";
+}
+
+#module-search {
+    width: 400px;
+    position: absolute;
+    left: 250px;
+    top: 15px;
+}
+
+</style>
+<div id="module-selector-div">
+        <h2 id="module-selector-logo">Modules</h2>
+        <input id="module-search" placeholder="Type the name of the module here..." autofocus />
+    <hr>
+    <div id="module-selector-modules"></div>
+</div>`, {}, () => {
+            document.getElementById('newtab').style.display = "none";
+            let search = document.getElementById('module-search');
+            let modules = document.getElementById('module-selector-modules');
+
+            search.click();
+
+            search.addEventListener('keyup', () => {
+                if (search.value === "") {
+                    for (let i of modules.children) i.style.display = "block";
+                    return;
+                }
+                for (let i of modules.children) i.style.display = "block";
+                for (let i of modules.children) {
+                    if (!i.children[0].innerText.toLowerCase().startsWith(search.value.toLowerCase())) i.style.display = "none"
+                };
+            });
+            for (let i in Codelab.modules) {
+                modules.insertAdjacentHTML('beforeend', `<div class="module-block"><h3>${i} ${!Codelab.modules[i].windowed ? " <img title=\"This module doesn't have an window interface.\"  width=\"16px\" height=\"16px\" src=\"img/nowin.png\">" : ""}</h3><span class="module-version">${Codelab.modules[i].author} ${Codelab.modules[i].version}</span><br><span>${Codelab.modules[i].desc}</span><button onclick="Codelab.utils.selectedTab[0].children[0].click();Codelab.getDependency('${i}');" class="module-download">${Codelab.modules[i].windowed ? "Open" : "Install"}</button></div>`)
+            }
+        }, []);
+    });
+}
 
 openWelcome();
+newTab();
 
 document.getElementById('terminal-btn').addEventListener('click', () => {
     Codelab.createWindow("Terminal", `<style>
@@ -373,112 +511,6 @@ background-color: #353535;
         runTerminal();
     }, [], true, `<span id="terminal-reload" onclick="Codelab.dependencies.Terminal.api.term.reset();">Reload</span>`);
 });
-function newTab() {
-    document.getElementById('newtab').addEventListener('click', () => {
-        Codelab.createWindow('+', `
-<style>
-#module-selector-div {
-    font-family: "Montserrat";
-    color: dimgray;
-    position: absolute;
-    left: 15px;
-}
-
-#module-selector-logo {
-    font-family: "Rubik", sans-serif;
-    font-size: 18px;
-}
-
-#module-selector-modules {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-.module-block {
-    width: 100%;
-    display: block;
-    height: auto;
-    border-bottom-color: #313131;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    font-family: "Montserrat";
-    font-size: 15px;
-    padding: 6px;
-}
-
-.module-version {
-    position: absolute;
-    left: 85%;
-    margin-top: -3%;
-}
-
-.module-block > h3 {
-    font-family: "Rubik", sans-serif !important;
-}
-
-.module-download {
-    border-color: #8cff76;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px;
-    position: inherit;
-    margin-left: 85%;
-    color: #8cff76;
-    background-color: rgba(0,0,0,0);
-    margin-bottom: 6px;
-    font-family: "Montserrat";
-}
-
-.module-download:hover {
-    border-color: #8cff76;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px;
-    position: inherit;
-    margin-left: 85%;
-    color: white;
-    background-color: rgba(20,80,20, 15);
-    margin-bottom: 6px;
-    font-family: "Montserrat";
-}
-
-#module-search {
-    width: 400px;
-    position: absolute;
-    left: 250px;
-    top: 15px;
-}
-
-</style>
-<div id="module-selector-div">
-        <h2 id="module-selector-logo">Modules</h2>
-        <input id="module-search" placeholder="Type the name of the module here..."/>
-    <hr>
-    <div id="module-selector-modules"></div>
-</div>`, {}, () => {
-            document.getElementById('newtab').style.display = "none";
-            let search = document.getElementById('module-search');
-            let modules = document.getElementById('module-selector-modules');
-
-            search.addEventListener('keyup', () => {
-                if (search.value === "") {
-                    for (let i of modules.children) i.style.display = "block";
-                    return;
-                }
-                for (let i of modules.children) i.style.display = "block";
-                for (let i of modules.children) {
-                    if (!i.children[0].innerText.toLowerCase().startsWith(search.value.toLowerCase())) i.style.display = "none"
-                }
-                ;
-            });
-            for (let i in Codelab.modules) {
-                modules.insertAdjacentHTML('beforeend', `<div class="module-block"><h3>${i} ${!Codelab.modules[i].windowed ? " <img title=\"This module doesn't have an window interface.\"  width=\"16px\" height=\"16px\" src=\"img/nowin.png\">" : ""}</h3><span class="module-version">${Codelab.modules[i].author} ${Codelab.modules[i].version}</span><br><span>${Codelab.modules[i].desc}</span><button onclick="Codelab.utils.selectedTab[0].children[0].click();Codelab.getDependency('${i}');" class="module-download">${Codelab.modules[i].windowed ? "Open" : "Install"}</button></div>`)
-            }
-        }, []);
-    });
-};
-newTab();
 document.addEventListener('mousemove', e => {
     Codelab.mouse.x = e.x;
     Codelab.mouse.y = e.screenY
@@ -676,30 +708,7 @@ console.log(\`Example!\`);
     }, []);
 });
 document.getElementById('save-btn').addEventListener('click', () => {
-    let date = Date.now();
-    let name = prompt('Type the name of project:');
-    let xml = `<codelab>
-    <project>
-        <name>${name}</name>
-        <modules>${Object.keys(Codelab.dependencies).join(', ')}</modules>
-        <localStorage></localStorage>
-        <date>${date}</date>
-    </project>
-</codelab>`;
-    let dom = new DOMParser();
-    let xml_dom = dom.parseFromString(xml, "text/xml");
-    for(let i = 0; i < localStorage.length; i++) {
-        let thing = localStorage.key(i);
-        let think = localStorage[thing];
-
-        let el = xml_dom.createElement(thing);
-        el.textContent = think;
-
-        xml_dom.getElementsByTagName('localStorage')[0].appendChild(el);
-
-    }
-    xml = xml_dom.documentElement.innerHTML;
-    Codelab.utils.download(`${name}-${date}.codelab`, xml);
+    saveEverything();
 });
 document.getElementById('load-btn').addEventListener('click', () => {
     Codelab.utils.askForFile('text/xml', f => {
@@ -712,10 +721,19 @@ document.getElementById('load-btn').addEventListener('click', () => {
         for(let i in json.project.localStorage) localStorage[i] = json.project.localStorage[i];
 
         setTimeout(() => {
-            document.getElementById('projectname').innerText = json.project.name
+            document.getElementById('projectname').innerText = json.project.name;
+            Codelab.name = json.project.name;
             for(let i of json.project.modules.split(", ")) Codelab.getDependency(i);
             document.getElementById('tabs').insertAdjacentHTML('beforeend', `<span id="newtab">+</span>`);
             newTab();
         }, 200);
     })
+});
+document.addEventListener('keydown', e => {
+   if(e.key.toLowerCase() === "s" && e.ctrlKey) {
+       e.stopPropagation();
+       e.preventDefault();
+       saveEverything();
+       return false;
+   }
 });

@@ -484,9 +484,9 @@ body {
 	user-select: none;
 	position: absolute !important;
 	right: 2px !important;
-	color: indianred !important;
-	left: 96% !important;
-	font-size: 17px;
+	color: white !important;
+	left: 95% !important;
+	font-size: 24px;
 	top: -5px !important;
 }
 
@@ -497,9 +497,9 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 	position: absolute !important;
-	left: 96% !important;
+	left: 95% !important;
 	color: #cd352a !important;
-	font-size: 17px;
+	font-size: 24px;
 	top: -5px !important;
 }
 
