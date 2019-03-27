@@ -82,10 +82,10 @@ body {
 	border-top: 1px;
 	border-top-color: #353535;
 	border-top-style: solid;
-	height: 20px;
 	width: 75px;
 	font-size: 14px;
 	font-family: "Montserrat";
+	padding-bottom: 10px;
 }
 
 .selectedtab:hover {
@@ -104,10 +104,10 @@ body {
 	border-top: 1px;
 	border-top-color: #353535;
 	border-top-style: solid;
-	height: 20px;
+	height: 10px;
 	width: 75px;
 	font-size: 14px;
-    font-family: "Montserrat";
+	font-family: "Montserrat";
 	color: white;
 }
 
@@ -510,6 +510,9 @@ input {
 	border-style: none;
 	border-radius: 3px;
 	padding: 5px;
+	width: 140px;
+	left: 10px;
+	position: relative;
 }
 
 .footer-btn {

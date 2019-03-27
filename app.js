@@ -1,6 +1,6 @@
 console.log(`%c>_ Codelab`, `font-style: oblique; padding: 10px; font-width: 1px; font-size: 32px; background: #222; color: #8cff76;`);
 console.log(`%cWelcome to the Codelab dev-console! Main API object: "Codelab" (window.Codelab)`, 'border-radius: 3px; padding: 10px; background: #222; color: #bada55');
-console.log('Ignore the errors.');
+console.debug('Ignore the errors.');
 
 if (!Object.prototype.watch) {
     Object.defineProperty(Object.prototype, "watch", {
@@ -712,21 +712,26 @@ document.getElementById('save-btn').addEventListener('click', () => {
 });
 document.getElementById('load-btn').addEventListener('click', () => {
     Codelab.utils.askForFile('text/xml', f => {
-        document.getElementById('tabs').innerHTML = "";
-        document.getElementById('window').innerHTML = "";
-        let dom = new DOMParser();
-        let xml = dom.parseFromString(f.target.result, "text/xml");
-        let json = Codelab.utils.xml2json(xml);
-        localStorage.clear();
-        for(let i in json.project.localStorage) localStorage[i] = json.project.localStorage[i];
+        try {
+            document.getElementById('tabs').innerHTML = "";
+            document.getElementById('window').innerHTML = "";
+            let dom = new DOMParser();
+            let xml = dom.parseFromString(f.target.result, "text/xml");
+            let json = Codelab.utils.xml2json(xml);
+            localStorage.clear();
+            for (let i in json.project.localStorage) localStorage[i] = json.project.localStorage[i];
 
-        setTimeout(() => {
-            document.getElementById('projectname').innerText = json.project.name;
-            Codelab.name = json.project.name;
-            for(let i of json.project.modules.split(", ")) Codelab.getDependency(i);
-            document.getElementById('tabs').insertAdjacentHTML('beforeend', `<span id="newtab">+</span>`);
-            newTab();
-        }, 200);
+            setTimeout(() => {
+                document.getElementById('projectname').innerText = json.project.name;
+                Codelab.name = json.project.name;
+                for (let i of json.project.modules.split(", ")) Codelab.getDependency(i);
+                document.getElementById('tabs').insertAdjacentHTML('beforeend', `<span id="newtab">+</span>`);
+                newTab();
+            }, 200);
+        } catch(e) {
+            Codelab.console.error('LoadError', 'Error at loading project.');
+            setTimeout(() => {window.location.reload()}, 3000)
+        }
     })
 });
 document.addEventListener('keydown', e => {
