@@ -516,6 +516,15 @@ module = {
             <br>
             <br>
             <textarea id="rest-headers-input"></textarea>
+            <br>
+            <br>
+            <span>Mode: </span>
+            <select id="rest-mode">
+                <option>cors</option>
+                <option>no-cors</option>
+                <option>same-origin</option>
+                <option>cors-anywhere</option>
+            </select>
         </div>
     </div>
     <div id="rest-win2">
@@ -562,7 +571,7 @@ module = {
             Codelab.dependencies.RESTClient.api.changing = false;
             return true;
         },
-	    createTab: tabname => {
+	    createTab: (tabname, method = "GET", editor = "", url = "", auth = "", headers = "")  => {
 	        if(!tabname) return Codelab.console.error('RESTClient', 'Error, you can\'t create tabs without name!');
 	        if(Codelab.dependencies.RESTClient.api.tabs[tabname]) return Codelab.console.error('RESTClient', 'Error, you can\'t create tabs with same name!');
 	        if(tabname.length > 12) return Codelab.console.warn('RESTClient', `Name is too large!`);
@@ -577,15 +586,14 @@ module = {
             document.getElementById('rest-folders').insertAdjacentHTML('beforeend', `<div id="rest-tab-${tabid}" class="rest-folder"><span id="rest-tab-type-${tabid}" class="rest-type rest-type-get">GET</span> <span class="rest-name">${tabname}</span></div>`)
             Codelab.dependencies.RESTClient.api.tabs[tabname] = {
                 name: tabname,
-                method: "GET",
-                type: "json",
-                editor: "",
+                method: method,
+                editor: editor,
                 output: "",
                 tab: document.getElementById(`rest-tab-${tabid}`),
-                url: "",
+                url: url,
                 status: ["white", ""],
-                headers: {},
-                auth: "",
+                headers: headers,
+                auth: auth,
                 outheaders: ""
             };
 
@@ -659,15 +667,24 @@ module = {
 				let init = {
 				    method: method,
 				};
+                init.mode = document.getElementById('rest-mode').value;
+
+				if(init.mode === "cors-anywhere") {
+				    url = `https://cors-anywhere.herokuapp.com/${url}`;
+                    delete init.mode;
+                }
+
+				console.log(init.mode);
+
+                let h;
 
 				if(abc.headers !== "") {
 				    if(typeof abc.headers === "string") {
-                        let h = Codelab.utils.yaml2json(abc.headers);
+                        h = Codelab.utils.yaml2json(abc.headers);
                         h = new Headers(h);
                     }
 				    else h = new Headers();
                 } else h = new Headers();
-
 
 				init.headers = h;
 
@@ -682,23 +699,27 @@ module = {
 				    url += data;
                 }
 				let headers;
-				console.log(init);
 				fetch(url, init)
 				.then(async resp => {
                     headers = Codelab.utils.headers2json(resp.headers);
                     let a = document.getElementById('rest-status');
 				    a.innerText = resp.status;
+				    console.log(resp);
 				    a.style.backgroundColor = resp.status < 200 ? "#4286f4" : (resp.status >= 200 && resp.status < 300) ? "#4cff3f" : (resp.status >= 300 && resp.status < 400) ? "#efff3f" : "#ff3f3f";
-				    return headers["content-type"].startsWith('application/json') ? resp.json() : resp.text();
+				    return headers["content-type"] ? headers["content-type"].startsWith('application/json') ? resp.json() : resp.text() : resp.text();
 				})
 				.then(json => {
                     output.getSession().selection.clearSelection();
-
-                    if(headers["content-type"].startsWith('application/json')) {
-                        abc.output = JSON.stringify(json, null, 2);
-                        output.setValue(JSON.stringify(json, null, 2), -1);
+                    if(headers["content-type"]) {
+                        if (headers["content-type"].startsWith('application/json')) {
+                            abc.output = JSON.stringify(json, null, 2);
+                            output.setValue(JSON.stringify(json, null, 2), -1);
+            } else {
+                            abc.output = json;
+                            output.setValue(json);
+                        }
                     } else {
-                        abc.output = json
+                        abc.output = json;
                         output.setValue(json);
                     }
                     let oh = document.getElementById('rest-out-headers');
@@ -709,7 +730,7 @@ module = {
                     oh.innerText = ho;
                     abc.outheaders = ho;
 				})
-				.catch(e => {console.error(e)})
+				.catch(e => {output.setValue(JSON.stringify({Error: e.name, Message: e.message}, null, 3))})
 			});
 			setTimeout(() => {
 				for(let i of document.getElementsByClassName("ace-monokai")) i.style.backgroundColor = "#232328";
@@ -751,11 +772,8 @@ module = {
                 };
 
                 Codelab.utils.jsonToQueryString = (json) => {
-                    return '?' +
-                        Object.keys(json).map(function(key) {
-                            return encodeURIComponent(key) + '=' +
-                                encodeURIComponent(json[key]);
-                        }).join('&');
+                    if(typeof json === "string") json = JSON.parse(json);
+                    return "?" + new URLSearchParams(json).toString();
                 };
                 Codelab.utils.headers2json = headers => {
                     let o = {};
@@ -829,7 +847,6 @@ module = {
                     let o = {};
                     let l = "";
                     let b = "";
-                        console.log(str);
                         let lines = str.split("\n");
                         for (let i of lines) {
                             if (i.includes(":") && !i.startsWith("	") && !i.endsWith(":")) {
@@ -851,10 +868,39 @@ module = {
                         return o;
                 };
 
+                Codelab.dependencies.RESTClient.api.save = () => {
+                    let ls = {
+                        tabs: Codelab.dependencies.RESTClient.api.tabs
+                    };
+                    ls = JSON.stringify(ls);
+
+                    localStorage.RESTClient = ls;
+                    return true;
+                };
+
+                Codelab.dependencies.RESTClient.api.load = () => {
+                    if(!localStorage.RESTClient) return false;
+                    let ls = JSON.parse(localStorage.RESTClient);
+
+                    for(let i in Codelab.dependencies.RESTClient.api.tabs) delete Codelab.dependencies.RESTClient.api.tabs[i];
+                    for(let i of document.getElementById('rest-folders').children) i.remove();
+
+                    for(let i in ls.tabs) {
+                        Codelab.dependencies.RESTClient.api.createTab(i, ls.tabs[i].method, ls.tabs[i].editor, ls.tabs[i].url, ls.tabs[i].auth, ls.tabs[i].headers);
+                    }
+                };
+
+                setTimeout(() => {
+                    Codelab.dependencies.RESTClient.api.load();
+                }, 350);
+
             }, 350)
 		}
 	},
 	dependencies: [],
 	focus: true,
-	windowed: true
+	windowed: true,
+    footer: `<button id="rest-save" class="footer-btn" onclick="Codelab.dependencies.RESTClient.api.save()">Save</button>
+<button id="rest-load" class="footer-btn" onclick="Codelab.dependencies.RESTClient.api.load()">Load</button>
+<button id="rest-clear" class="footer-btn" onclick="delete localStorage.RESTClient">Clear</button>`
 };

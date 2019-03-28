@@ -3737,6 +3737,7 @@
       <change afterPath="$PROJECT_DIR$/../Cashbot/package-lock.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Cashbot/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Cashbot/template.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/.idea/libraries/Java_WebSocket_1_4_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/OJV.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/World.java" afterDir="false" />
@@ -3747,10 +3748,8 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChromeBot/node_modules/IMG_20181226_125942-magic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/RESTClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/RESTClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/code.png" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/code.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DIMDENs OWOP PACK/o.js" beforeDir="false" afterPath="$PROJECT_DIR$/../DIMDENs OWOP PACK/o.js" afterDir="false" />
@@ -3980,11 +3979,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packages/RESTClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="507" column="16" selection-start-line="507" selection-start-column="16" selection-end-line="507" selection-end-column="16" />
+            <state relative-caret-position="193">
+              <caret line="774" column="73" selection-start-line="774" selection-start-column="73" selection-end-line="774" selection-end-column="73" />
               <folding>
                 <element signature="e#4665#4839#0" />
-                <element signature="e#15443#15725#0" />
                 <element signature="e#16766#16925#0" />
               </folding>
             </state>
@@ -4013,8 +4011,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sha256</find>
-      <find>.error</find>
       <find>require</find>
       <find>#cons</find>
       <find>72px</find>
@@ -4026,7 +4022,6 @@
       <find>Open</find>
       <find>win</find>
       <find>window</find>
-      <find>console</find>
       <find>logo</find>
       <find>nb</find>
       <find>tabs</find>
@@ -4043,6 +4038,9 @@
       <find>rename</find>
       <find>-vl</find>
       <find>_</find>
+      <find>console</find>
+      <find>console.log</find>
+      <find>&quot;GET&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -4165,12 +4163,12 @@
       <workItem from="1553096003665" duration="98517000" />
       <workItem from="1553428199285" duration="8237000" />
       <workItem from="1553520887718" duration="9930000" />
-      <workItem from="1553605671111" duration="32112000" />
+      <workItem from="1553605671111" duration="37697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209492000" />
+    <option name="totallyTimeSpent" value="215077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -4394,11 +4392,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/RESTClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="507" column="16" selection-start-line="507" selection-start-column="16" selection-end-line="507" selection-end-column="16" />
+        <state relative-caret-position="193">
+          <caret line="774" column="73" selection-start-line="774" selection-start-column="73" selection-end-line="774" selection-end-column="73" />
           <folding>
             <element signature="e#4665#4839#0" />
-            <element signature="e#15443#15725#0" />
             <element signature="e#16766#16925#0" />
           </folding>
         </state>
