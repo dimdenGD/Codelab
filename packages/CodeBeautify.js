@@ -101,6 +101,7 @@ module = {
             <option>JS</option>
             <option>HTML</option>
             <option>CSS</option>
+            <option>JSON</option>
         </select>
         <br>
         <br>
@@ -276,7 +277,7 @@ module = {
                 }
             }
 
-            if(language === "JS") {
+            if(language === "JS" || language === "JSON") {
                 Codelab.dependencies.CodeBeautify.api.editor.setValue(js_beautify(Codelab.dependencies.CodeBeautify.api.editor.getValue(), opts), -1);
             } else if(language === "CSS") {
                 Codelab.dependencies.CodeBeautify.api.editor.setValue(css_beautify(Codelab.dependencies.CodeBeautify.api.editor.getValue(), opts), -1);
@@ -308,7 +309,7 @@ module = {
 
         let select = document.getElementById('cb-select');
         select.addEventListener('change', () => {
-            editor.getSession().setMode("ace/mode/"+select.value.toLowerCase().replace('js', 'javascript'));
+            editor.getSession().setMode("ace/mode/"+select.value.toLowerCase().replace(/js$/g, 'javascript'));
         });
         setTimeout(() => {
             for (let i of document.getElementsByClassName("ace-monokai")) i.style.backgroundColor = "#232328";
