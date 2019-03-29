@@ -11,5 +11,6 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="require" level="application" />
     <orderEntry type="library" name="es6-shim" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1" level="application" />
   </component>
 </module>

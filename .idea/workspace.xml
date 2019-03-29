@@ -3738,6 +3738,7 @@
       <change afterPath="$PROJECT_DIR$/../Cashbot/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Cashbot/template.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/CodeBeautify.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/.idea/libraries/Java_WebSocket_1_4_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/OJV.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Java/OJV/src/com/dimden/OJV/World.java" afterDir="false" />
@@ -3748,8 +3749,13 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ChromeBot/node_modules/IMG_20181226_125942-magic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Codelab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Codelab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/RESTClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/RESTClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/code.png" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/code.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ColorScript/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ColorScript/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../DIMDENs OWOP PACK/o.js" beforeDir="false" afterPath="$PROJECT_DIR$/../DIMDENs OWOP PACK/o.js" afterDir="false" />
@@ -3802,6 +3808,7 @@
       <change beforePath="$PROJECT_DIR$/../OWOP_JS/node_modules/ws/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../OWOP_JS/owop.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../OWOP_JS/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VK_Artem_Butilkin/original_api/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/../VK_Artem_Butilkin/original_api/lib.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../owopfor_dimden/maybethisisbetter/app.350ccda60cab3b4cb409.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../owopfor_dimden/maybethisisbetter/audio/click.mp3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../owopfor_dimden/maybethisisbetter/audio/launch.mp3" beforeDir="false" />
@@ -3947,8 +3954,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-106">
-              <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            <state relative-caret-position="296">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+              <folding>
+                <element signature="n#script#5;n#head#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/packages/CodeBeautify.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#2651#2655#0" expanded="true" />
+                <element signature="e#2660#2664#0" expanded="true" />
+                <element signature="e#2666#2670#0" expanded="true" />
+                <element signature="e#2676#2680#0" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#5014#5018#0" expanded="true" />
+                <element signature="e#5022#5026#0" expanded="true" />
+                <element signature="e#5031#5035#0" expanded="true" />
+                <element signature="e#5039#5043#0" expanded="true" />
+                <element signature="e#1462#1533#0" />
+                <element signature="e#1565#1636#0" />
+                <element signature="e#9348#10123#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -3956,13 +3990,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-              <folding>
-                <element signature="e#372#1236#0" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#1016#1052#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="202">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/RESTClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="735" selection-start-line="735" selection-end-line="737" selection-end-column="107" />
             </state>
           </provider>
         </entry>
@@ -3970,21 +4008,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/packages/RESTClient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="774" column="73" selection-start-line="774" selection-start-column="73" selection-end-line="774" selection-end-column="73" />
-              <folding>
-                <element signature="e#4665#4839#0" />
-                <element signature="e#16766#16925#0" />
-              </folding>
+            <state relative-caret-position="263">
+              <caret line="609" column="20" selection-start-line="609" selection-start-column="20" selection-end-line="609" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -3992,8 +4017,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="455">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -4011,10 +4036,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>require</find>
-      <find>#cons</find>
-      <find>72px</find>
-      <find>px</find>
       <find>node_modules</find>
       <find>toUn</find>
       <find>toUnicode</find>
@@ -4037,10 +4058,14 @@
       <find>document.getElementsByTagName</find>
       <find>rename</find>
       <find>-vl</find>
-      <find>_</find>
       <find>console</find>
       <find>console.log</find>
       <find>&quot;GET&quot;</find>
+      <find>quer</find>
+      <find>_</find>
+      <find>&gt;</find>
+      <find>new OWOP</find>
+      <find>style</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -4070,12 +4095,13 @@
         <option value="$PROJECT_DIR$/packages/WebBuilder.js" />
         <option value="$PROJECT_DIR$/project.codelab" />
         <option value="$PROJECT_DIR$/packages/Terminal.js" />
-        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/packages/Welcome.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/modules.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/modules.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/packages/RESTClient.js" />
+        <option value="$PROJECT_DIR$/packages/CodeBeautify.js" />
       </list>
     </option>
   </component>
@@ -4126,6 +4152,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.23980099" />
+    <property name="ts.external.directory.path" value="F:\CodingShit\WebStorm 2018.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -4163,18 +4190,20 @@
       <workItem from="1553096003665" duration="98517000" />
       <workItem from="1553428199285" duration="8237000" />
       <workItem from="1553520887718" duration="9930000" />
-      <workItem from="1553605671111" duration="37697000" />
+      <workItem from="1553605671111" duration="38725000" />
+      <workItem from="1553758329207" duration="657000" />
+      <workItem from="1553768280847" duration="10866000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215077000" />
+    <option name="totallyTimeSpent" value="227628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Floobits" order="0" weight="0.051282052" />
@@ -4190,18 +4219,19 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" type="SLIDING" weight="0.32991454" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32991454" />
+      <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1688988" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Floobits" order="0" visible="true" weight="0.051282052" />
+      <window_info anchor="bottom" id="Floobits" order="0" weight="0.051282052" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32991454" />
-      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32991454" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -4211,6 +4241,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" type="SLIDING" weight="0.32991454" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32991454" />
+      <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -4286,17 +4317,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tspackage/RESTClient.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tspackage/Terminal.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/packages/Welcome.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
+          <caret line="34" column="102" selection-end-line="42" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+          <folding>
+            <element signature="n#script#5;n#head#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="609" column="20" selection-start-line="609" selection-start-column="20" selection-end-line="609" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../CrimsonClient/CrimsonClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="2065" column="4" lean-forward="true" selection-start-line="2065" selection-start-column="4" selection-end-line="2065" selection-end-column="4" />
+        <state relative-caret-position="161">
+          <caret line="383" column="25" lean-forward="true" selection-start-line="383" selection-start-column="25" selection-end-line="383" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#1690#2128#0" />
@@ -4313,7 +4389,7 @@
             <element signature="e#8552#10105#0" />
             <element signature="e#10124#10936#0" />
             <element signature="e#10954#12175#0" />
-            <element signature="e#12194#36328#0" />
+            <element signature="e#12621#16607#0" />
             <element signature="e#36352#39501#0" />
             <element signature="e#39529#40014#0" />
             <element signature="e#40042#40257#0" />
@@ -4338,7 +4414,6 @@
             <element signature="e#121057#121581#0" />
             <element signature="e#121595#122077#0" />
             <element signature="e#122110#123083#0" />
-            <element signature="e#123113#124519#0" />
             <element signature="e#124549#130975#0" />
             <element signature="e#131007#131658#0" />
             <element signature="e#131697#133910#0" />
@@ -4357,46 +4432,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding>
-            <element signature="e#372#1236#0" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#1016#1052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/RESTClient.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="774" column="73" selection-start-line="774" selection-start-column="73" selection-end-line="774" selection-end-column="73" />
+        <state relative-caret-position="125">
+          <caret line="735" selection-start-line="735" selection-end-line="737" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/CodeBeautify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
           <folding>
-            <element signature="e#4665#4839#0" />
-            <element signature="e#16766#16925#0" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2651#2655#0" expanded="true" />
+            <element signature="e#2660#2664#0" expanded="true" />
+            <element signature="e#2666#2670#0" expanded="true" />
+            <element signature="e#2676#2680#0" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#5014#5018#0" expanded="true" />
+            <element signature="e#5022#5026#0" expanded="true" />
+            <element signature="e#5031#5035#0" expanded="true" />
+            <element signature="e#5039#5043#0" expanded="true" />
+            <element signature="e#1462#1533#0" />
+            <element signature="e#1565#1636#0" />
+            <element signature="e#9348#10123#0" />
           </folding>
         </state>
       </provider>

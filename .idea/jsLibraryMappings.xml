@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{es6-shim, jquery, require}" />
+    <file url="PROJECT" libraries="{es6-shim, jquery, jquery-3.3.1, require}" />
   </component>
 </project>

@@ -646,7 +646,8 @@ module = {
 			let output = ace.edit("rest-result");
 			output.setTheme("ace/theme/monokai");
             output.getSession().setUseWorker(false);
-			output.getSession().setMode("ace/mode/json");
+            editor.getSession().setUseWorker(false);
+            output.getSession().setMode("ace/mode/json");
 			output.setOption("showPrintMargin", false);
 			output.setReadOnly(true);
             output.renderer.$cursorLayer.element.style.opacity = 0;

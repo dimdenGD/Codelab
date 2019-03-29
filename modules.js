@@ -16,5 +16,11 @@ Codelab.modules = {
         desc: "Test and debug REST APIs like a cat, not a dog. 🐈",
         version: '1.0.0',
         windowed: true
+    },
+    "CodeBeautify": {
+        author: "dimden",
+        desc: "Beautify your code easily!",
+        version: '1.0.0',
+        windowed: true
     }
 };

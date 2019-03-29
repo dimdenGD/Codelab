@@ -503,16 +503,13 @@ body {
 	top: -5px !important;
 }
 
-input {
+.checkbox {
 	font-family: "Rubik", sans-serif;
 	color: dimgrey;
-	background-color: #353540;
+	background-color: #353540 !important;
 	border-style: none;
 	border-radius: 3px;
 	padding: 5px;
-	width: 140px;
-	left: 10px;
-	position: relative;
 }
 
 .footer-btn {
@@ -529,6 +526,7 @@ input {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-size: 11px;
 }
 .footer-btn:hover {
     width: auto;
@@ -606,4 +604,13 @@ input {
     text-align: right;
     position: absolute;
     bottom: 4px;
+}
+
+input {
+    font-family: "Rubik", sans-serif;
+    color: dimgrey;
+    background-color: #353540 !important;
+    border-style: none;
+    border-radius: 3px;
+    padding: 5px;
 }
