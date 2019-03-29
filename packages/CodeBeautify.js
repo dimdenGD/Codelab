@@ -78,7 +78,7 @@ module = {
     
     #cb-editor {
         width: 100%;
-        height: 100%;
+        height: 42%;
         position: fixed;
         left: 1px;
         top: 360px;
